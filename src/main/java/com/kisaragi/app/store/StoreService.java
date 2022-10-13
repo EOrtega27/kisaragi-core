@@ -1,6 +1,7 @@
 package com.kisaragi.app.store;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class StoreService {
 	
 	public StoreModel findStore(int id) {
 		return storeRepo.findById(id);
+	}
+	
+	public List<StoreModel> getAllStores(){
+		return storeRepo.findAllByOrderByIdAsc();
 	}
 	
 	public StoreModel saveStore(StoreModel store) {

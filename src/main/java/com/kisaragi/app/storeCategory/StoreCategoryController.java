@@ -20,6 +20,11 @@ public class StoreCategoryController {
 	StoreCategoryService storeCatService;
 	
 	@GetMapping(" ")
+	public ResponseEntity<Object> obtenerCategoriasTienda(){
+		return new ResponseEntity<Object>(storeCatService.findAll(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/id")
 	public ResponseEntity<Object> obtenerDatosCategoriasTienda(@RequestBody IdDTO id){
 		StoreCategoryModel stCat = storeCatService.findCategory(id.getId());
 		return new ResponseEntity<Object>(stCat, HttpStatus.OK);

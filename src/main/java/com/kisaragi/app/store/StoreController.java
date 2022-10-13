@@ -30,9 +30,18 @@ public class StoreController {
 	StoreCategoryService stCategoryService;
 	
 	@GetMapping(" ")
+	public ResponseEntity<Object> obtenerTiendas(){
+		return new ResponseEntity<Object>(storeService.getAllStores(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/id")
 	public ResponseEntity<Object> obtenerDatosTienda(@RequestBody IdDTO id){
-		StoreModel store = storeService.findStore(id.getId());
-		return new ResponseEntity<Object>(store, HttpStatus.OK);
+		if(storeService.existStore(id.getId())) {
+			StoreModel store = storeService.findStore(id.getId());
+			return new ResponseEntity<Object>(store, HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Object>("No se encontró la tienda", HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@PostMapping("/save")

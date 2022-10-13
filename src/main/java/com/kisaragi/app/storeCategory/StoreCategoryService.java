@@ -1,9 +1,9 @@
 package com.kisaragi.app.storeCategory;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.kisaragi.app.store.StoreModel;
 
 @Service
 public class StoreCategoryService {
@@ -12,6 +12,10 @@ public class StoreCategoryService {
 	
 	public StoreCategoryModel findCategory(int id) {
 		return storeCatRepository.findById(id);
+	}
+	
+	public List<StoreCategoryModel> findAll(){
+		return storeCatRepository.findAllByOrderById();
 	}
 	
 	public StoreCategoryModel saveCategory(StoreCategoryModel stCat) {
