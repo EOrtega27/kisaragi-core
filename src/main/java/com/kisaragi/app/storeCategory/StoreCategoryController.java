@@ -20,12 +20,12 @@ public class StoreCategoryController {
 	StoreCategoryService storeCatService;
 	
 	@GetMapping(" ")
-	public ResponseEntity<Object> obtenerCategoriasTienda(){
+	public ResponseEntity<Object> getAllStoreCategories(){
 		return new ResponseEntity<Object>(storeCatService.findAll(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/id")
-	public ResponseEntity<Object> obtenerDatosCategoriasTienda(@RequestBody IdDTO id){
+	public ResponseEntity<Object> getStoreCategory(@RequestBody IdDTO id){
 		StoreCategoryModel stCat = storeCatService.findCategory(id.getId());
 		return new ResponseEntity<Object>(stCat, HttpStatus.OK);
 	}
@@ -34,6 +34,14 @@ public class StoreCategoryController {
 	public ResponseEntity<Object> saveStoreCategory(@RequestBody StoreCategoryDTO stCatData){
 		StoreCategoryModel stCatTest = new StoreCategoryModel();
 		stCatTest.setName(stCatData.getName());
+		return new ResponseEntity<Object>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
+	}
+	
+	@PostMapping("/update")
+	public ResponseEntity<Object> updateStoreCategory(@RequestBody StoreCategoryDTO stCatData, IdDTO idData){
+		StoreCategoryModel stCatTest = new StoreCategoryModel();
+		stCatTest.setName(stCatData.getName());
+		stCatTest.setId(idData.getId());
 		return new ResponseEntity<Object>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
 	}
 	

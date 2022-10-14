@@ -30,12 +30,12 @@ public class StoreController {
 	StoreCategoryService stCategoryService;
 	
 	@GetMapping(" ")
-	public ResponseEntity<Object> obtenerTiendas(){
+	public ResponseEntity<Object> getAllStores(){
 		return new ResponseEntity<Object>(storeService.getAllStores(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/id")
-	public ResponseEntity<Object> obtenerDatosTienda(@RequestBody IdDTO id){
+	public ResponseEntity<Object> getStore(@RequestBody IdDTO id){
 		if(storeService.existStore(id.getId())) {
 			StoreModel store = storeService.findStore(id.getId());
 			return new ResponseEntity<Object>(store, HttpStatus.OK);
@@ -47,7 +47,13 @@ public class StoreController {
 	@PostMapping("/save")
 	public ResponseEntity<Object> saveStore(@RequestBody StoreDTO storeData){
 		StoreModel store = new StoreModel(storeData);
-		System.out.println(storeData.getName());
+		return new ResponseEntity<Object>(storeService.saveStore(store), HttpStatus.OK);
+	}
+	
+	@PostMapping("/update")
+	public ResponseEntity<Object> updateStore(@RequestBody StoreDTO storeData, IdDTO idData){
+		StoreModel store = new StoreModel(storeData);
+		store.setId(idData.getId());
 		return new ResponseEntity<Object>(storeService.saveStore(store), HttpStatus.OK);
 	}
 	

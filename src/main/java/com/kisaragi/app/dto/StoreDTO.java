@@ -7,7 +7,6 @@ public class StoreDTO {
 	private float latitude;
 	private float longitude;
 	private String telephone;
-	private String image;
 	private String email;
 	
 	public int getAdminId() {
@@ -45,12 +44,6 @@ public class StoreDTO {
 	}
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
 	}
 	public String getEmail() {
 		return email;

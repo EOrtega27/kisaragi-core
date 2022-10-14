@@ -30,6 +30,10 @@ public class StoreService {
 		return storeRepo.save(store);
 	}
 	
+	public StoreModel updateStore(StoreModel store) {
+		return storeRepo.save(store);
+	}
+	
 	public boolean deleteStore(int id_store) {
 		if(existStore(id_store)) {
 			StoreModel store = findStore(id_store);

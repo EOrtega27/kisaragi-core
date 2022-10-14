@@ -162,7 +162,6 @@ public class StoreModel {
 		this.address = data.getAddress();
 		this.adminId = data.getAdminId();
 		this.email = data.getEmail();
-		this.image = data.getImage();
 		this.latitude = data.getLatitude();
 		this.longitude = data.getLongitude();
 		this.name = data.getName();
