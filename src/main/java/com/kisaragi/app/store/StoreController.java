@@ -51,7 +51,7 @@ public class StoreController {
 	}
 	
 	@PostMapping("/update")
-	public ResponseEntity<Object> updateStore(@RequestBody StoreDTO storeData, IdDTO idData){
+	public ResponseEntity<Object> updateStore(@RequestBody StoreDTO storeData, @RequestBody IdDTO idData){
 		StoreModel store = new StoreModel(storeData);
 		store.setId(idData.getId());
 		return new ResponseEntity<Object>(storeService.saveStore(store), HttpStatus.OK);
