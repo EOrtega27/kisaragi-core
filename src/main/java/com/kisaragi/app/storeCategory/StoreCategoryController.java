@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kisaragi.app.dto.IdDTO;
 import com.kisaragi.app.dto.StoreCategoryDTO;
+import com.kisaragi.app.dto.UpdateStoreCategoryRequest;
 
 @RestController
 @RequestMapping("/store_categories")
@@ -38,10 +39,10 @@ public class StoreCategoryController {
 	}
 	
 	@PostMapping("/update")
-	public ResponseEntity<Object> updateStoreCategory(@RequestBody StoreCategoryDTO stCatData, IdDTO idData){
+	public ResponseEntity<Object> updateStoreCategory(@RequestBody UpdateStoreCategoryRequest stCatData){
 		StoreCategoryModel stCatTest = new StoreCategoryModel();
-		stCatTest.setName(stCatData.getName());
-		stCatTest.setId(idData.getId());
+		stCatTest.setName(stCatData.getNombre());
+		stCatTest.setId(stCatData.getId());
 		return new ResponseEntity<Object>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
 	}
 	

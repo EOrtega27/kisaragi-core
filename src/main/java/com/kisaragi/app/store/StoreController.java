@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.kisaragi.app.dto.IdDTO;
 import com.kisaragi.app.dto.StoreDTO;
+import com.kisaragi.app.dto.UpdateStoreRequest;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
 import com.kisaragi.app.storeCategory.StoreCategoryService;
 
@@ -51,9 +52,9 @@ public class StoreController {
 	}
 	
 	@PostMapping("/update")
-	public ResponseEntity<Object> updateStore(@RequestBody StoreDTO storeData, @RequestBody IdDTO idData){
-		StoreModel store = new StoreModel(storeData);
-		store.setId(idData.getId());
+	public ResponseEntity<Object> updateStore(@RequestBody UpdateStoreRequest storeData){
+		StoreModel store = new StoreModel(storeData.getNewData());
+		store.setId(storeData.getId());
 		return new ResponseEntity<Object>(storeService.saveStore(store), HttpStatus.OK);
 	}
 	
