@@ -17,7 +17,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kisaragi.app.dto.StoreDTO;
-import com.kisaragi.app.productCategory.productCategoryModel;
+import com.kisaragi.app.productCategory.ProductCategoryModel;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
 
 @Entity
@@ -29,7 +29,7 @@ public class StoreModel {
 	
 	@OneToMany(mappedBy = "store_productCategory")
 	@JsonIgnore
-	private Set<productCategoryModel> productCategories;
+	private Set<ProductCategoryModel> productCategories;
 	
 	@Column(name="adminId")
 	private int adminId;
@@ -71,11 +71,11 @@ public class StoreModel {
 		this.id = id;
 	}
 
-	public Set<productCategoryModel> getProductCategories() {
+	public Set<ProductCategoryModel> getProductCategories() {
 		return productCategories;
 	}
 
-	public void setProductCategories(Set<productCategoryModel> productCategories) {
+	public void setProductCategories(Set<ProductCategoryModel> productCategories) {
 		this.productCategories = productCategories;
 	}
 
