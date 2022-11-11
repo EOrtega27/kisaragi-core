@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ProductRepository extends JpaRepository<ProductModel, Integer>{
 	public ProductModel findById(int id);
 	
-	public List<ProductModel> findAllByOrderByAsc();
+	public List<ProductModel> findAllByOrderByIdAsc();
 }
