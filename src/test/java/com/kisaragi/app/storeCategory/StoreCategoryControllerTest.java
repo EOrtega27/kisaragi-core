@@ -3,6 +3,7 @@ package com.kisaragi.app.storeCategory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kisaragi.app.dto.IdDTO;
 import com.kisaragi.app.dto.StoreCategoryDTO;
+import com.kisaragi.app.dto.UpdateStoreCategoryRequest;
 import org.hamcrest.collection.IsCollectionWithSize;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,7 +52,6 @@ class StoreCategoryControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/store_categories/id")
                         .content(asJsonString(new IdDTO(0)))
                         .contentType(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("test"));
@@ -72,7 +72,7 @@ class StoreCategoryControllerTest {
     void updateStoreCategory() throws Exception{
         when(stCatService.saveCategory(any(StoreCategoryModel.class))).thenReturn(stCat);
         mockMvc.perform(MockMvcRequestBuilders.post("/store_categories/update")
-                        .content(asJsonString(new StoreCategoryDTO()))
+                        .content(asJsonString(new UpdateStoreCategoryRequest()))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
