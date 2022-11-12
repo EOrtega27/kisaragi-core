@@ -1,7 +1,9 @@
 package com.kisaragi.app.storeCategory;
 
 import java.util.List;
+import java.util.Set;
 
+import com.kisaragi.app.store.StoreModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +12,13 @@ public class StoreCategoryService {
 	@Autowired
 	StoreCategoryRepository storeCatRepository;
 	
-	public StoreCategoryModel findCategory(int id) {
-		return storeCatRepository.findById(id);
+	public StoreCategoryModel findCategory(int id_cat) {
+		if(existCategory(id_cat)) {
+			return storeCatRepository.findById(id_cat);
+		}else {
+			return null;
+		}
+
 	}
 	
 	public List<StoreCategoryModel> findAll(){
@@ -25,8 +32,7 @@ public class StoreCategoryService {
 	
 	public boolean deleteCategory(int id_cat) {
 		if(existCategory(id_cat)) {
-			StoreCategoryModel cat = findCategory(id_cat);
-			storeCatRepository.delete(cat);
+			storeCatRepository.deleteById(id_cat);
 			return true;
 		}else {
 			return false;
@@ -35,5 +41,9 @@ public class StoreCategoryService {
 	
 	public boolean existCategory(int id) {
 		return storeCatRepository.existsById(id);
+	}
+
+	public Set<StoreModel> getStoresById(int cat_id){
+		return findCategory(cat_id).getStores();
 	}
 }

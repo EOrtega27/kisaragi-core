@@ -40,9 +40,7 @@ public class StoreCategoryController {
 	
 	@PostMapping("/update")
 	public ResponseEntity<Object> updateStoreCategory(@RequestBody UpdateStoreCategoryRequest stCatData){
-		StoreCategoryModel stCatTest = new StoreCategoryModel();
-		stCatTest.setName(stCatData.getNombre());
-		stCatTest.setId(stCatData.getId());
+		StoreCategoryModel stCatTest = new StoreCategoryModel(stCatData.getId(),stCatData.getNombre());
 		return new ResponseEntity<Object>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
 	}
 	

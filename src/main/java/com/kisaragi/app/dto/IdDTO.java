@@ -10,5 +10,11 @@ public class IdDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
+	public IdDTO() {
+	}
+
+	public IdDTO(int id) {
+		this.id = id;
+	}
 }
