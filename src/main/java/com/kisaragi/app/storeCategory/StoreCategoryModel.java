@@ -28,6 +28,13 @@ public class StoreCategoryModel {
 	@JsonIgnore
 	private Set<StoreModel> stores;
 
+	public StoreCategoryModel() {
+	}
+
+	public StoreCategoryModel(String name) {
+		this.name = name;
+	}
+
 	public int getId() {
 		return id;
 	}
