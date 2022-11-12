@@ -14,7 +14,6 @@ import com.kisaragi.app.dto.UpdateStoreRequest;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
 import com.kisaragi.app.storeCategory.StoreCategoryService;
 
-@CrossOrigin()
 @RestController
 @RequestMapping("/stores")
 public class StoreController {
@@ -38,6 +37,7 @@ public class StoreController {
 		}
 	}
 
+	@CrossOrigin
 	@GetMapping("/admin_id")
 	public ResponseEntity<Object> getStoreByAdminId(@RequestBody IdDTO id){
 		return new ResponseEntity<Object>(storeService.findStoreByAdminId(id.getId()), HttpStatus.OK);

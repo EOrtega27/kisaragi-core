@@ -9,7 +9,7 @@ import com.kisaragi.app.dto.IdDTO;
 import com.kisaragi.app.dto.StoreCategoryDTO;
 import com.kisaragi.app.dto.UpdateStoreCategoryRequest;
 
-@CrossOrigin()
+
 @RestController
 @RequestMapping("/store_categories")
 public class StoreCategoryController {
