@@ -21,6 +21,10 @@ public class StoreService {
 	public StoreModel findStore(int id) {
 		return storeRepo.findById(id);
 	}
+
+	public List<StoreModel> findStoreByAdminId(int id){
+		return storeRepo.findAllByAdminId(id);
+	}
 	
 	public List<StoreModel> getAllStores(){
 		return storeRepo.findAllByOrderByIdAsc();
