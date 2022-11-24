@@ -36,6 +36,15 @@ public class ProductCategoryModel {
 	@Column(name="name")
 	private String name;
 
+	public ProductCategoryModel() {
+
+	}
+
+	public ProductCategoryModel(StoreModel store_productCategory, String name) {
+		this.store_productCategory = store_productCategory;
+		this.name = name;
+	}
+
 	public int getId() {
 		return id;
 	}
