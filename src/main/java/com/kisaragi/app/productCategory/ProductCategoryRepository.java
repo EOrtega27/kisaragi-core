@@ -9,5 +9,5 @@ public interface ProductCategoryRepository extends JpaRepository<ProductCategory
 	public ProductCategoryModel findById(int id);
 
 	public List<ProductCategoryModel> findAllByOrderByIdAsc();
-	public List<ProductCategoryModel> findAllByStoreProductCategory(StoreModel store_productCategory);
+	public List<ProductCategoryModel> findAllByStore_ProductCategory(StoreModel store_productCategory);
 }
