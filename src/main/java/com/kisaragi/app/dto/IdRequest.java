@@ -1,6 +1,6 @@
 package com.kisaragi.app.dto;
 
-public class IdDTO {
+public class IdRequest {
 	private int id;
 
 	public int getId() {
@@ -11,10 +11,10 @@ public class IdDTO {
 		this.id = id;
 	}
 
-	public IdDTO() {
+	public IdRequest() {
 	}
 
-	public IdDTO(int id) {
+	public IdRequest(int id) {
 		this.id = id;
 	}
 }

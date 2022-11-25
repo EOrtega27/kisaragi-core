@@ -33,4 +33,16 @@ public class ProductCategoryService {
         ProductCategoryModel newCategory = new ProductCategoryModel(store, categoryName);
         return proCatRepository.save(newCategory);
     }
+
+    public boolean existCategory(int categoryId){
+        return proCatRepository.existsById(categoryId);
+    }
+    public boolean deleteCategory(int categoryId){
+        if(existCategory(categoryId)){
+            proCatRepository.deleteById(categoryId);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

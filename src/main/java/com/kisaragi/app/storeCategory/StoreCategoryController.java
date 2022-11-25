@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.kisaragi.app.dto.IdDTO;
+import com.kisaragi.app.dto.IdRequest;
 import com.kisaragi.app.dto.StoreCategoryDTO;
 import com.kisaragi.app.dto.UpdateStoreCategoryRequest;
 
@@ -18,34 +18,34 @@ public class StoreCategoryController {
 	
 	@GetMapping(" ")
 	public ResponseEntity<Object> getAllStoreCategories(){
-		return new ResponseEntity<Object>(storeCatService.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(storeCatService.findAll(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/id")
-	public ResponseEntity<Object> getStoreCategory(@RequestBody IdDTO id){
+	public ResponseEntity<Object> getStoreCategory(@RequestBody IdRequest id){
 		StoreCategoryModel stCat = storeCatService.findCategory(id.getId());
-		return new ResponseEntity<Object>(stCat, HttpStatus.OK);
+		return new ResponseEntity<>(stCat, HttpStatus.OK);
 	}
 	
 	@PostMapping("/save")
 	public ResponseEntity<Object> saveStoreCategory(@RequestBody StoreCategoryDTO stCatData){
 		StoreCategoryModel stCatTest = new StoreCategoryModel();
 		stCatTest.setName(stCatData.getName());
-		return new ResponseEntity<Object>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
+		return new ResponseEntity<>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
 	}
 	
 	@PostMapping("/update")
 	public ResponseEntity<Object> updateStoreCategory(@RequestBody UpdateStoreCategoryRequest stCatData){
 		StoreCategoryModel stCatTest = new StoreCategoryModel(stCatData.getId(),stCatData.getNombre());
-		return new ResponseEntity<Object>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
+		return new ResponseEntity<>(storeCatService.saveCategory(stCatTest), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete")
-	public ResponseEntity<Object> deleteStoreCategory(@RequestBody IdDTO id){
+	public ResponseEntity<Object> deleteStoreCategory(@RequestBody IdRequest id){
 		if(storeCatService.deleteCategory(id.getId())) {
-			return new ResponseEntity<Object>("Categoría borrada", HttpStatus.OK);
+			return new ResponseEntity<>("Categoría borrada", HttpStatus.OK);
 		}else {
-			return new ResponseEntity<Object>("No se encontró la categoria", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>("No se encontró la categoria", HttpStatus.BAD_REQUEST);
 		}
 	}
 }

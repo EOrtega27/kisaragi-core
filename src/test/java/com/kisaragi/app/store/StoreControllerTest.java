@@ -1,7 +1,7 @@
 package com.kisaragi.app.store;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kisaragi.app.dto.IdDTO;
+import com.kisaragi.app.dto.IdRequest;
 import com.kisaragi.app.dto.StoreDTO;
 import com.kisaragi.app.dto.UpdateStoreRequest;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
@@ -19,7 +19,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @WebMvcTest(StoreController.class)
@@ -61,7 +60,7 @@ class StoreControllerTest {
         when(storeService.existStore(anyInt())).thenReturn(true);
         when(storeService.findStore(anyInt())).thenReturn(storeTest);
         mockMvc.perform(MockMvcRequestBuilders.get("/stores/id")
-                        .content(asJsonString(new IdDTO(0)))
+                        .content(asJsonString(new IdRequest(0)))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())

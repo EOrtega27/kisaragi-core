@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.kisaragi.app.dto.IdDTO;
+import com.kisaragi.app.dto.IdRequest;
 import com.kisaragi.app.dto.StoreDTO;
 import com.kisaragi.app.dto.UpdateStoreRequest;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
@@ -28,7 +28,7 @@ public class StoreController {
 	}
 	
 	@GetMapping("/id")
-	public ResponseEntity<Object> getStore(@RequestBody IdDTO id){
+	public ResponseEntity<Object> getStore(@RequestBody IdRequest id){
 		if(storeService.existStore(id.getId())) {
 			StoreModel store = storeService.findStore(id.getId());
 			return new ResponseEntity<Object>(store, HttpStatus.OK);
@@ -39,7 +39,7 @@ public class StoreController {
 
 	@CrossOrigin
 	@GetMapping("/admin_id")
-	public ResponseEntity<Object> getStoreByAdminId(@RequestBody IdDTO id){
+	public ResponseEntity<Object> getStoreByAdminId(@RequestBody IdRequest id){
 		return new ResponseEntity<Object>(storeService.findStoreByAdminId(id.getId()), HttpStatus.OK);
 	}
 
@@ -57,7 +57,7 @@ public class StoreController {
 	}
 	
 	@DeleteMapping("/delete")
-	public ResponseEntity<Object> deleteStore(@RequestBody IdDTO id){
+	public ResponseEntity<Object> deleteStore(@RequestBody IdRequest id){
 		if(storeService.deleteStore(id.getId())) {
 			return new ResponseEntity<Object>("Tienda borrada", HttpStatus.OK);
 		}else {
@@ -72,7 +72,7 @@ public class StoreController {
 	
 	@PostMapping("/{storeId}/add_category")
 	@ResponseBody
-	public ResponseEntity<Object> addCategory(@RequestBody IdDTO stCatId, @PathVariable int storeId){
+	public ResponseEntity<Object> addCategory(@RequestBody IdRequest stCatId, @PathVariable int storeId){
 		StoreCategoryModel stCat = stCategoryService.findCategory(stCatId.getId());
 		return new ResponseEntity<Object>(storeService.addCategory(storeId, stCat), HttpStatus.OK);
 	}
