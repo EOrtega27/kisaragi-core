@@ -25,7 +25,7 @@ public class ProductCategoryService {
 
     public List<ProductCategoryModel> getAllByStore(int storeId){
         StoreModel store = storeService.findStore(storeId);
-        return proCatRepository.findAllByStore_ProductCategory(store);
+        return proCatRepository.findAllByStoreProductCategory(store);
     }
 
     public ProductCategoryModel createCategory(int storeId, String categoryName){

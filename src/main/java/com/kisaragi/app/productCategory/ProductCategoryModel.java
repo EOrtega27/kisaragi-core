@@ -25,13 +25,13 @@ public class ProductCategoryModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToMany(mappedBy = "product_productCategory")
+	@OneToMany(mappedBy = "productCategory")
 	@JsonIgnore
-	private Set<ProductModel> product_list;
+	private Set<ProductModel> productList;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="storeId", referencedColumnName = "id")
-    private StoreModel store_productCategory;
+    private StoreModel storeProductCategory;
 	
 	@Column(name="name")
 	private String name;
@@ -40,8 +40,8 @@ public class ProductCategoryModel {
 
 	}
 
-	public ProductCategoryModel(StoreModel store_productCategory, String name) {
-		this.store_productCategory = store_productCategory;
+	public ProductCategoryModel(StoreModel storeProductCategory, String name) {
+		this.storeProductCategory = storeProductCategory;
 		this.name = name;
 	}
 
@@ -53,12 +53,12 @@ public class ProductCategoryModel {
 		this.id = id;
 	}
 
-	public String getStore_productCategory() {
-		return store_productCategory.getName();
+	public String getStoreProductCategory() {
+		return storeProductCategory.getName();
 	}
 
-	public void setStore_productCategory(StoreModel store_productCategory) {
-		this.store_productCategory = store_productCategory;
+	public void setStoreProductCategory(StoreModel store_productCategory) {
+		this.storeProductCategory = store_productCategory;
 	}
 
 	public String getName() {
@@ -69,12 +69,12 @@ public class ProductCategoryModel {
 		this.name = name;
 	}
 
-	public Set<ProductModel> getProduct_list() {
-		return product_list;
+	public Set<ProductModel> getProductList() {
+		return productList;
 	}
 
-	public void setProduct_list(Set<ProductModel> product_list) {
-		this.product_list = product_list;
+	public void setProductList(Set<ProductModel> productList) {
+		this.productList = productList;
 	}
 	
 	

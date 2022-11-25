@@ -27,7 +27,7 @@ public class StoreModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToMany(mappedBy = "store_productCategory")
+	@OneToMany(mappedBy = "storeProductCategory")
 	@JsonIgnore
 	private Set<ProductCategoryModel> productCategories;
 	

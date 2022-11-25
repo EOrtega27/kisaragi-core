@@ -22,7 +22,7 @@ public class ProductModel {
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="productCategoryId", referencedColumnName = "id")
-	private ProductCategoryModel product_productCategory;
+	private ProductCategoryModel productCategory;
 	
 	@Column(name="name", length = 50)
 	private String name;
@@ -31,7 +31,7 @@ public class ProductModel {
 	private String description;
 	
 	@Column(name="unit_price", precision = 8, scale = 3)
-	private float unit_price;
+	private float unitPrice;
 	
 	@Column()
 	private int stock;
@@ -47,12 +47,12 @@ public class ProductModel {
 		this.id = id;
 	}
 
-	public ProductCategoryModel getProduct_productCategory() {
-		return product_productCategory;
+	public ProductCategoryModel getProductCategory() {
+		return productCategory;
 	}
 
-	public void setProduct_productCategory(ProductCategoryModel product_productCategory) {
-		this.product_productCategory = product_productCategory;
+	public void setProductCategory(ProductCategoryModel product_productCategory) {
+		this.productCategory = product_productCategory;
 	}
 
 	public String getName() {
@@ -71,12 +71,12 @@ public class ProductModel {
 		this.description = description;
 	}
 
-	public float getUnit_price() {
-		return unit_price;
+	public float getUnitPrice() {
+		return unitPrice;
 	}
 
-	public void setUnit_price(float unit_price) {
-		this.unit_price = unit_price;
+	public void setUnitPrice(float unit_price) {
+		this.unitPrice = unit_price;
 	}
 
 	public int getStock() {
@@ -87,12 +87,12 @@ public class ProductModel {
 		this.stock = stock;
 	}
 
-	public String getIamge() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setIamge(String iamge) {
-		this.image = iamge;
+	public void getImage(String image) {
+		this.image = image;
 	}
 	
 	
