@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/product_categories")
+@RequestMapping("/products")
 public class ProductController {
     @Autowired
     ProductService productService;
