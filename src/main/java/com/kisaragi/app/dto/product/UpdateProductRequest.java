@@ -1,11 +1,16 @@
 package com.kisaragi.app.dto.product;
 
-public class SaveProductRequest {
+public class UpdateProductRequest {
+    private int id;
     private String name;
     private String desciption;
     private float unitPrice;
     private int stock;
     private int categoryId;
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

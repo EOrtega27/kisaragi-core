@@ -79,4 +79,8 @@ public class ProductService {
         ProductModel product = getProductById(productId);
         productRepository.delete(product);
     }
+
+    public boolean existsProduct(int productId){
+        return productRepository.existsById(productId);
+    }
 }

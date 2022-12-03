@@ -20,7 +20,7 @@ public class ProductModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne()
     @JoinColumn(name="productCategoryId", referencedColumnName = "id")
 	private ProductCategoryModel productCategory;
 	

@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kisaragi.app.product.ProductModel;
 import com.kisaragi.app.store.StoreModel;
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "productCategory")
@@ -24,12 +25,17 @@ public class ProductCategoryModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@OneToMany(mappedBy = "productCategory")
+
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, mappedBy = "productCategory")
+	@Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,
+			org.hibernate.annotations.CascadeType.DELETE,
+			org.hibernate.annotations.CascadeType.MERGE,
+			org.hibernate.annotations.CascadeType.PERSIST,
+			org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
 	@JsonIgnore
 	private Set<ProductModel> productList;
 	
-	@ManyToOne( )
+	@ManyToOne()
     @JoinColumn(name="storeId", referencedColumnName = "id")
     private StoreModel storeProductCategory;
 	
