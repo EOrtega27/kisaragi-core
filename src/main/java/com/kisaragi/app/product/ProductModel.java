@@ -39,6 +39,17 @@ public class ProductModel {
 	@Column(name="image")
 	private String image;
 
+	public ProductModel() {
+	}
+
+	public ProductModel(ProductCategoryModel productCategory, String name, String description, float unitPrice, int stock) {
+		this.productCategory = productCategory;
+		this.name = name;
+		this.description = description;
+		this.unitPrice = unitPrice;
+		this.stock = stock;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -91,7 +102,7 @@ public class ProductModel {
 		return image;
 	}
 
-	public void getImage(String image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 	
