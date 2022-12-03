@@ -30,16 +30,16 @@ public class ProductService {
     @Autowired
     cloudinaryService cloudinary;
 
-    private List<ProductModel> getAllProducts(){
+    public List<ProductModel> getAllProducts(){
         return productRepository.findAllByOrderByIdAsc();
     }
 
-    private List<ProductModel> getAllProductByCategory(int categoryId){
+    public List<ProductModel> getAllProductByCategory(int categoryId){
         ProductCategoryModel category = productCategoryRepository.findById(categoryId);
         return productRepository.findAllByProductCategory(category);
     }
 
-    private List<ProductModel> getAllProductByStore(int storeId){
+    public List<ProductModel> getAllProductByStore(int storeId){
         List<ProductCategoryModel> categories = productCategoryService.getAllByStore(storeId);
         List<ProductModel> products = new ArrayList<>();
         ProductCategoryModel category;
@@ -51,31 +51,31 @@ public class ProductService {
         return products;
     }
 
-    private ProductModel getProductById(int productId){
+    public ProductModel getProductById(int productId){
         return productRepository.findById(productId);
     }
 
-    private ProductModel createProduct(String name, String description, float unitPrice, int stock, int categoryId){
+    public ProductModel createProduct(String name, String description, float unitPrice, int stock, int categoryId){
         ProductCategoryModel category = productCategoryRepository.findById(categoryId);
         ProductModel product = new ProductModel(category, name, description, unitPrice, stock);
         return productRepository.save(product);
     }
 
-    private ProductModel updateProduct(int productId, String name, String description, float unitPrice, int stock, int categoryId){
+    public ProductModel updateProduct(int productId, String name, String description, float unitPrice, int stock, int categoryId){
         ProductCategoryModel category = productCategoryRepository.findById(categoryId);
         ProductModel product = new ProductModel(category, name, description, unitPrice, stock);
         product.setId(productId);
         return productRepository.save(product);
     }
 
-    private ProductModel uploadProductImage(MultipartFile multipartFile, int productId) throws IOException{
+    public ProductModel uploadProductImage(MultipartFile multipartFile, int productId) throws IOException{
         Map result = cloudinary.upload(multipartFile);
         ProductModel product = getProductById(productId);
         product.setImage(result.get("url").toString());
         return productRepository.save(product);
     }
 
-    private void deleteProduct(int productId){
+    public void deleteProduct(int productId){
         ProductModel product = getProductById(productId);
         productRepository.delete(product);
     }
