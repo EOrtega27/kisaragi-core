@@ -29,7 +29,7 @@ public class ProductCategoryModel {
 	@JsonIgnore
 	private Set<ProductModel> productList;
 	
-	@ManyToOne()
+	@ManyToOne( cascade = CascadeType.DETACH)
     @JoinColumn(name="storeId", referencedColumnName = "id")
     private StoreModel storeProductCategory;
 	
