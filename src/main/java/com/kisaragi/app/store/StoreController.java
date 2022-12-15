@@ -1,7 +1,11 @@
 package com.kisaragi.app.store;
 
 import java.io.IOException;
+import java.util.List;
 
+import com.kisaragi.app.dto.store.ShowStoreResponse;
+import com.kisaragi.app.product.ProductModel;
+import com.kisaragi.app.product.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +25,9 @@ public class StoreController {
 	StoreService storeService;
 	@Autowired
 	StoreCategoryService stCategoryService;
-	
+	@Autowired
+	ProductService productService;
+
 	@GetMapping(" ")
 	public ResponseEntity<Object> getAllStores(){
 		return new ResponseEntity<Object>(storeService.getAllStores(),HttpStatus.OK);
@@ -31,7 +37,11 @@ public class StoreController {
 	public ResponseEntity<Object> getStore(@RequestBody IdRequest id){
 		if(storeService.existStore(id.getId())) {
 			StoreModel store = storeService.findStore(id.getId());
-			return new ResponseEntity<Object>(store, HttpStatus.OK);
+			List<ProductModel> products = productService.getAllProductByStore(id.getId());
+			ShowStoreResponse response = new ShowStoreResponse();
+			response.setStore_data(store);
+			response.setStore_products(products);
+			return new ResponseEntity<Object>(response, HttpStatus.OK);
 		}else {
 			return new ResponseEntity<Object>("No se encontró la tienda", HttpStatus.BAD_REQUEST);
 		}
