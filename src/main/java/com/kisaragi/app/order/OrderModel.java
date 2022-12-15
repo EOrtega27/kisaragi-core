@@ -2,6 +2,7 @@ package com.kisaragi.app.order;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kisaragi.app.OrderProduct.OrderProduct;
+import com.kisaragi.app.store.StoreModel;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -14,7 +15,7 @@ public class OrderModel {
 
     @ManyToOne()
     @JoinColumn(name="storeId", referencedColumnName = "id")
-    public int storeOrder;
+    public StoreModel storeOrder;
 
     @OneToMany(mappedBy = "order")
     @JsonIgnore
