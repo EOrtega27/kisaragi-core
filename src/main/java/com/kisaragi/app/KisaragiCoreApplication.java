@@ -23,7 +23,7 @@ public class KisaragiCoreApplication {
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000","*"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000","https://kisaragi-partners.vercel.app/","https://kisaragi-partners-git-master-arianzambrano.vercel.app/"));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
 				"Access-Control-Request-Method", "Access-Control-Request-Headers"));

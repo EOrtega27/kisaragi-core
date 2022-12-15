@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kisaragi.app.dto.StoreDTO;
+import com.kisaragi.app.order.OrderModel;
 import com.kisaragi.app.productCategory.ProductCategoryModel;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
 import org.hibernate.annotations.Cascade;
@@ -36,7 +37,16 @@ public class StoreModel {
 			org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
 	@JsonIgnore
 	private Set<ProductCategoryModel> productCategories;
-	
+
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, mappedBy = "storeOrder")
+	@Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,
+			org.hibernate.annotations.CascadeType.DELETE,
+			org.hibernate.annotations.CascadeType.MERGE,
+			org.hibernate.annotations.CascadeType.PERSIST,
+			org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
+	@JsonIgnore
+	private Set<OrderModel> orders;
+
 	@Column(name="adminId")
 	private int adminId;
 	
