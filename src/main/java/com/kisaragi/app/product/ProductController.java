@@ -23,15 +23,15 @@ public class ProductController {
         return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
     @GetMapping("/by_id")
-    private ResponseEntity<Object> getProductById(IdRequest id){
+    private ResponseEntity<Object> getProductById(@RequestBody IdRequest id){
         return new ResponseEntity<>(productService.getProductById(id.getId()),HttpStatus.OK);
     }
     @GetMapping("/by_category")
-    private  ResponseEntity<Object> getProductByCategory(IdRequest id){
+    private  ResponseEntity<Object> getProductByCategory(@RequestBody IdRequest id){
         return new ResponseEntity<>(productService.getAllProductByCategory(id.getId()),HttpStatus.OK);
     }
     @GetMapping("/by_store")
-    private  ResponseEntity<Object> getProductByStore(IdRequest id){
+    private  ResponseEntity<Object> getProductByStore(@RequestBody IdRequest id){
         return new ResponseEntity<>(productService.getAllProductByStore(id.getId()),HttpStatus.OK);
     }
 
