@@ -22,7 +22,7 @@ public class StoreService {
 		return storeRepo.findById(id);
 	}
 
-	public List<StoreModel> findStoreByAdminId(int id){
+	public List<StoreModel> findStoreByAdminId(String id){
 		return storeRepo.findAllByAdminId(id);
 	}
 	

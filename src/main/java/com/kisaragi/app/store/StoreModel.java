@@ -48,7 +48,7 @@ public class StoreModel {
 	private Set<OrderModel> orders;
 
 	@Column(name="adminId")
-	private int adminId;
+	private String adminId;
 	
 	@Column(name="name", length = 200)
 	private String name;
@@ -95,11 +95,11 @@ public class StoreModel {
 		this.productCategories = productCategories;
 	}
 
-	public int getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
 
-	public void setAdminId(int adminId) {
+	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
 

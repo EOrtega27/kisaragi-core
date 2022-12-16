@@ -3,6 +3,7 @@ package com.kisaragi.app.store;
 import java.io.IOException;
 import java.util.List;
 
+import com.kisaragi.app.dto.store.GetByAdminIdRequest;
 import com.kisaragi.app.dto.store.ShowStoreResponse;
 import com.kisaragi.app.product.ProductModel;
 import com.kisaragi.app.product.ProductService;
@@ -49,8 +50,8 @@ public class StoreController {
 
 	@CrossOrigin
 	@PostMapping("/admin_id")
-	public ResponseEntity<Object> getStoreByAdminId(@RequestBody IdRequest id){
-		return new ResponseEntity<Object>(storeService.findStoreByAdminId(id.getId()), HttpStatus.OK);
+	public ResponseEntity<Object> getStoreByAdminId(@RequestBody GetByAdminIdRequest id){
+		return new ResponseEntity<Object>(storeService.findStoreByAdminId(id.getAdminId()), HttpStatus.OK);
 	}
 
 	@PostMapping("/save")
