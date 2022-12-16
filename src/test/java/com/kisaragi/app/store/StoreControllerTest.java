@@ -120,7 +120,7 @@ class StoreControllerTest {
 
     @Test
     void addCategory() throws Exception{
-        when(storeService.addCategory(anyInt(),any(StoreCategoryModel.class))).thenReturn(storeTest);
+        when(storeService.addCategory(anyInt(),anyInt())).thenReturn(storeTest);
         when(stCatService.findCategory(anyInt())).thenReturn(category);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/stores/{storeId}/add_category",1)
