@@ -2,12 +2,14 @@ package com.kisaragi.app.storeCategory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@Order(1)
 public class CreateStoreCategory implements CommandLineRunner {
     @Autowired
     StoreCategoryRepository storeCategoryRepository;
