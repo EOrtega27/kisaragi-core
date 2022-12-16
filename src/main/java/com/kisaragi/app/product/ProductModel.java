@@ -21,7 +21,7 @@ public class ProductModel {
 
 	@OneToMany(mappedBy = "product")
 	@JsonIgnore
-	Set<OrderProduct> orderProducts;
+	private Set<OrderProduct> orderProducts;
 
 	@Column(name="name", length = 50)
 	private String name;

@@ -21,12 +21,12 @@ public class ProductCategoryController {
         return new ResponseEntity<>(proCatService.getAllCategories(), HttpStatus.OK);
     }
 
-    @GetMapping("/by_store")
+    @PostMapping("/by_store")
     private ResponseEntity<Object> getCategoriesByStore(@RequestBody IdRequest storeId){
         return new ResponseEntity<>(proCatService.getAllByStore(storeId.getId()),HttpStatus.OK);
     }
 
-    @GetMapping("/id")
+    @PostMapping("/id")
     private ResponseEntity<Object> getCategoryById(@RequestBody IdRequest catId){
         return new ResponseEntity<>(proCatService.findById(catId.getId()),HttpStatus.OK);
     }

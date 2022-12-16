@@ -21,7 +21,7 @@ public class StoreCategoryController {
 		return new ResponseEntity<>(storeCatService.findAll(), HttpStatus.OK);
 	}
 	
-	@GetMapping("/id")
+	@PostMapping("/id")
 	public ResponseEntity<Object> getStoreCategory(@RequestBody IdRequest id){
 		StoreCategoryModel stCat = storeCatService.findCategory(id.getId());
 		return new ResponseEntity<>(stCat, HttpStatus.OK);

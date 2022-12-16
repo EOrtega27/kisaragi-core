@@ -33,7 +33,7 @@ public class StoreController {
 		return new ResponseEntity<Object>(storeService.getAllStores(),HttpStatus.OK);
 	}
 	
-	@GetMapping("/id")
+	@PostMapping("/id")
 	public ResponseEntity<Object> getStore(@RequestBody IdRequest id){
 		if(storeService.existStore(id.getId())) {
 			StoreModel store = storeService.findStore(id.getId());
@@ -48,7 +48,7 @@ public class StoreController {
 	}
 
 	@CrossOrigin
-	@GetMapping("/admin_id")
+	@PostMapping("/admin_id")
 	public ResponseEntity<Object> getStoreByAdminId(@RequestBody IdRequest id){
 		return new ResponseEntity<Object>(storeService.findStoreByAdminId(id.getId()), HttpStatus.OK);
 	}
