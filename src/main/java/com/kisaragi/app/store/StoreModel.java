@@ -173,6 +173,16 @@ public class StoreModel {
 		// TODO Auto-generated constructor stub
 	}
 
+	public StoreModel(String adminId, String name, String address, float latitude, float longitude, String telephone, String email) {
+		this.adminId = adminId;
+		this.name = name;
+		this.address = address;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.telephone = telephone;
+		this.email = email;
+	}
+
 	public StoreModel(StoreDTO data) {
 		super();
 		this.address = data.getAddress();

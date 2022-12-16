@@ -3,6 +3,7 @@ package com.kisaragi.app.store;
 import java.io.IOException;
 import java.util.List;
 
+import com.kisaragi.app.dto.store.AddStoreCategoryRequest;
 import com.kisaragi.app.dto.store.GetByAdminIdRequest;
 import com.kisaragi.app.dto.store.ShowStoreResponse;
 import com.kisaragi.app.product.ProductModel;
@@ -81,10 +82,9 @@ public class StoreController {
 		return new ResponseEntity<Object>(storeService.saveStoreImage(file, storeId), HttpStatus.OK);
 	}
 	
-	@PostMapping("/{storeId}/add_category")
+	@PostMapping("/add_category")
 	@ResponseBody
-	public ResponseEntity<Object> addCategory(@RequestBody IdRequest stCatId, @PathVariable int storeId){
-		StoreCategoryModel stCat = stCategoryService.findCategory(stCatId.getId());
-		return new ResponseEntity<Object>(storeService.addCategory(storeId, stCat), HttpStatus.OK);
+	public ResponseEntity<Object> addCategory(@RequestBody AddStoreCategoryRequest request){
+		return new ResponseEntity<Object>(storeService.addCategory(request.getStoreId(), request.getStoreCategoryId()), HttpStatus.OK);
 	}
 }
