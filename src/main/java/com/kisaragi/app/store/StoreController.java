@@ -8,6 +8,10 @@ import com.kisaragi.app.dto.store.GetByAdminIdRequest;
 import com.kisaragi.app.dto.store.ShowStoreResponse;
 import com.kisaragi.app.product.ProductModel;
 import com.kisaragi.app.product.ProductService;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +38,8 @@ public class StoreController {
 	public ResponseEntity<Object> getAllStores(){
 		return new ResponseEntity<Object>(storeService.getAllStores(),HttpStatus.OK);
 	}
-	
+
+
 	@PostMapping("/id")
 	public ResponseEntity<Object> getStore(@RequestBody IdRequest id){
 		if(storeService.existStore(id.getId())) {
