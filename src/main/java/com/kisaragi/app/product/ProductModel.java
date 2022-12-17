@@ -19,7 +19,7 @@ public class ProductModel {
     @JoinColumn(name="productCategoryId", referencedColumnName = "id")
 	private ProductCategoryModel productCategory;
 
-	@OneToMany(mappedBy = "product")
+	@OneToMany(mappedBy = "productId")
 	@JsonIgnore
 	private Set<OrderProduct> orderProducts;
 
@@ -104,6 +104,12 @@ public class ProductModel {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	
+
+	public Set<OrderProduct> getOrderProducts() {
+		return orderProducts;
+	}
+
+	public void setOrderProducts(Set<OrderProduct> orderProducts) {
+		this.orderProducts = orderProducts;
+	}
 }

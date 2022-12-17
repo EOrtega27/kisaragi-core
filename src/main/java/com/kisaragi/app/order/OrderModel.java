@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "Orders")
 public class OrderModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,15 +18,15 @@ public class OrderModel {
     @JoinColumn(name="storeId", referencedColumnName = "id")
     private StoreModel storeOrder;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orderId")
     @JsonIgnore
     private Set<OrderProduct> orderProducts;
 
-    @Column(name="tracking")
+    @Column(name="tracking", unique = true)
     private String tracking;
 
     @Column(name="userId")
-    private int userId;
+    private String userId;
 
     @Column(name="address")
     private String address;
@@ -33,6 +34,18 @@ public class OrderModel {
     @Column(name="state")
     @Enumerated(EnumType.STRING)
     private State state;
+
+    public OrderModel() {
+        super();
+    }
+
+    public OrderModel(StoreModel storeOrder, String tracking, String userId, String address) {
+        this.storeOrder = storeOrder;
+        this.tracking = tracking;
+        this.userId = userId;
+        this.address = address;
+        this.state = State.NOTIFICADA;
+    }
 
     public int getId() {
         return id;
@@ -66,11 +79,11 @@ public class OrderModel {
         this.tracking = tracking;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

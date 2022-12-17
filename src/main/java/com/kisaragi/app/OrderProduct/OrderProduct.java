@@ -6,44 +6,45 @@ import com.kisaragi.app.product.ProductModel;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "OrdersProducts")
+@IdClass(OrderProductKey.class)
 public class OrderProduct {
-    @EmbeddedId
-    OrderProductKey id;
 
+    @Id
     @ManyToOne
-    @MapsId("orderId")
-    @JoinColumn(name = "orderId")
-    OrderModel order;
-
+    @JoinColumn(name = "orderId", referencedColumnName = "id")
+    private OrderModel orderId;
+    @Id
     @ManyToOne
-    @MapsId("productId")
-    @JoinColumn(name = "productId")
-    ProductModel product;
+    @JoinColumn(name = "productId", referencedColumnName = "id")
+    private ProductModel productId;
 
+    @Column(name="quantity")
     int quantity;
 
-    public OrderProductKey getId() {
-        return id;
+    public OrderProduct() {
     }
 
-    public void setId(OrderProductKey id) {
-        this.id = id;
+    public OrderProduct(OrderModel orderId, ProductModel productId, int quantity) {
+        this.orderId = orderId;
+        this.productId = productId;
+        this.quantity = quantity;
     }
 
-    public OrderModel getOrder() {
-        return order;
+    public OrderModel getOrderId() {
+        return orderId;
     }
 
-    public void setOrder(OrderModel order) {
-        this.order = order;
+    public void setOrderId(OrderModel orderId) {
+        this.orderId = orderId;
     }
 
-    public ProductModel getProduct() {
-        return product;
+    public ProductModel getProductId() {
+        return productId;
     }
 
-    public void setProduct(ProductModel product) {
-        this.product = product;
+    public void setProductId(ProductModel productId) {
+        this.productId = productId;
     }
 
     public int getQuantity() {

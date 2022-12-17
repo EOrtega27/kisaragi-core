@@ -167,7 +167,14 @@ public class StoreModel {
 		this.storeCategories = storeCategories;
 	}
 
-	
+	public Set<OrderModel> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<OrderModel> orders) {
+		this.orders = orders;
+	}
+
 	public StoreModel() {
 		super();
 		// TODO Auto-generated constructor stub
