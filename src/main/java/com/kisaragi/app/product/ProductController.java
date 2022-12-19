@@ -1,8 +1,8 @@
 package com.kisaragi.app.product;
 
-import com.kisaragi.app.dto.IdRequest;
-import com.kisaragi.app.dto.product.SaveProductRequest;
-import com.kisaragi.app.dto.product.UpdateProductRequest;
+import com.kisaragi.app.requests.IdRequest;
+import com.kisaragi.app.requests.product.SaveProductRequest;
+import com.kisaragi.app.requests.product.UpdateProductRequest;
 import com.kisaragi.app.productCategory.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

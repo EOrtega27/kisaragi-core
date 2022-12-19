@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto.order;
+package com.kisaragi.app.requests.order;
 
 public class GetOrdersByUserId {
     private String userId;

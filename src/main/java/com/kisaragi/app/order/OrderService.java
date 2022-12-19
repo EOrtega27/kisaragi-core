@@ -2,8 +2,8 @@ package com.kisaragi.app.order;
 
 import com.kisaragi.app.OrderProduct.OrderProduct;
 import com.kisaragi.app.OrderProduct.OrderProductRepository;
-import com.kisaragi.app.dto.order.GetOrderProductsResponse;
-import com.kisaragi.app.dto.order.OrderResponse;
+import com.kisaragi.app.requests.order.GetOrderProductsResponse;
+import com.kisaragi.app.requests.order.OrderResponse;
 import com.kisaragi.app.product.ProductModel;
 import com.kisaragi.app.product.ProductService;
 import com.kisaragi.app.store.StoreModel;

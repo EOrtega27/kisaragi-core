@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto.store;
+package com.kisaragi.app.requests.store;
 
 public class GetByAdminIdRequest {
     private String adminId;

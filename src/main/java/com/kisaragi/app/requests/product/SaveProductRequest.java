@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto.product;
+package com.kisaragi.app.requests.product;
 
 public class SaveProductRequest {
     private String name;

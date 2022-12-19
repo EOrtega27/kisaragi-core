@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto.product;
+package com.kisaragi.app.requests.product;
 
 public class UpdateProductRequest {
     private int id;

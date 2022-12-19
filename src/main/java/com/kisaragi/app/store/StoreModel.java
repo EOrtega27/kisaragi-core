@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.kisaragi.app.dto.StoreDTO;
+import com.kisaragi.app.requests.StoreDTO;
 import com.kisaragi.app.order.OrderModel;
 import com.kisaragi.app.productCategory.ProductCategoryModel;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;

@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto;
+package com.kisaragi.app.requests;
 
 public class UpdateStoreRequest {
 	private int id;

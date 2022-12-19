@@ -28,7 +28,8 @@ public class KisaragiCoreApplication {
 				"https://kisaragi-partners.vercel.app/",
 				"https://kisaragi-partners-git-master-arianzambrano.vercel.app/",
 				"https://kisaragi-front-h61dbcurd-edwardr0507.vercel.app/",
-				"https://kisaragi-front-murex.vercel.app/"
+				"https://kisaragi-front-murex.vercel.app/",
+				"*/"
 		));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",

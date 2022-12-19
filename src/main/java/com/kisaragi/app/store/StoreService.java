@@ -68,4 +68,14 @@ public class StoreService {
 		store.getStoreCategories().add(storeCategoryModel);
 		return storeRepo.save(store);
 	}
+
+	public StoreModel addCategories(int storeId, List<Integer> storeCategoryIds) {
+		StoreModel store = findStore(storeId);
+		store.getStoreCategories().clear();
+		for(int storeCategoryId: storeCategoryIds){
+			StoreCategoryModel storeCategoryModel = storeCategoryRepository.findById(storeCategoryId);
+			store.getStoreCategories().add(storeCategoryModel);
+		}
+		return storeRepo.save(store);
+	}
 }

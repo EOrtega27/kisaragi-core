@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto.store;
+package com.kisaragi.app.requests.store;
 
 import com.kisaragi.app.product.ProductModel;
 import com.kisaragi.app.store.StoreModel;

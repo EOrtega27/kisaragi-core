@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto;
+package com.kisaragi.app.requests;
 
 public class IdRequest {
 	private int id;

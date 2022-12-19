@@ -1,10 +1,10 @@
 package com.kisaragi.app.order;
 
-import com.kisaragi.app.dto.IdRequest;
-import com.kisaragi.app.dto.order.CreateOrderRequest;
-import com.kisaragi.app.dto.order.GetOrderByTracking;
-import com.kisaragi.app.dto.order.GetOrdersByUserId;
-import com.kisaragi.app.dto.order.UpdateOrderState;
+import com.kisaragi.app.requests.IdRequest;
+import com.kisaragi.app.requests.order.CreateOrderRequest;
+import com.kisaragi.app.requests.order.GetOrderByTracking;
+import com.kisaragi.app.requests.order.GetOrdersByUserId;
+import com.kisaragi.app.requests.order.UpdateOrderState;
 import com.kisaragi.app.store.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

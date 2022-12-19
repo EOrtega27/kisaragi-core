@@ -1,4 +1,4 @@
-package com.kisaragi.app.dto.productCategory;
+package com.kisaragi.app.requests.productCategory;
 
 public class SaveProductCategoryRequest {
     private String productCategoryName;

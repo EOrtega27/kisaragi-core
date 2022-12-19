@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.kisaragi.app.dto.IdRequest;
-import com.kisaragi.app.dto.StoreCategoryDTO;
-import com.kisaragi.app.dto.UpdateStoreCategoryRequest;
+import com.kisaragi.app.requests.IdRequest;
+import com.kisaragi.app.requests.StoreCategoryDTO;
+import com.kisaragi.app.requests.UpdateStoreCategoryRequest;
 
 import java.util.Set;
 

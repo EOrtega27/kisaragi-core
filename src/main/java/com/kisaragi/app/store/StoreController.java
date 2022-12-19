@@ -3,25 +3,21 @@ package com.kisaragi.app.store;
 import java.io.IOException;
 import java.util.List;
 
-import com.kisaragi.app.dto.store.AddStoreCategoryRequest;
-import com.kisaragi.app.dto.store.GetByAdminIdRequest;
-import com.kisaragi.app.dto.store.ShowStoreResponse;
+import com.kisaragi.app.requests.store.AddStoreCategoriesRequest;
+import com.kisaragi.app.requests.store.AddStoreCategoryRequest;
+import com.kisaragi.app.requests.store.GetByAdminIdRequest;
+import com.kisaragi.app.requests.store.ShowStoreResponse;
 import com.kisaragi.app.product.ProductModel;
 import com.kisaragi.app.product.ProductService;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.kisaragi.app.dto.IdRequest;
-import com.kisaragi.app.dto.StoreDTO;
-import com.kisaragi.app.dto.UpdateStoreRequest;
-import com.kisaragi.app.storeCategory.StoreCategoryModel;
+import com.kisaragi.app.requests.IdRequest;
+import com.kisaragi.app.requests.StoreDTO;
+import com.kisaragi.app.requests.UpdateStoreRequest;
 import com.kisaragi.app.storeCategory.StoreCategoryService;
 
 @RestController
@@ -91,5 +87,11 @@ public class StoreController {
 	@ResponseBody
 	public ResponseEntity<Object> addCategory(@RequestBody AddStoreCategoryRequest request){
 		return new ResponseEntity<Object>(storeService.addCategory(request.getStoreId(), request.getStoreCategoryId()), HttpStatus.OK);
+	}
+
+	@PostMapping("/set_categories")
+	@ResponseBody
+	public ResponseEntity<Object> setCategories(@RequestBody AddStoreCategoriesRequest request){
+		return new ResponseEntity<Object>(storeService.addCategories(request.getStoreId(), request.getStoreCategoriesIds()), HttpStatus.OK);
 	}
 }
