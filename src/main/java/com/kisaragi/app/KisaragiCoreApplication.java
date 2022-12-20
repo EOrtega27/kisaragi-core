@@ -24,7 +24,7 @@ public class KisaragiCoreApplication {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
 		corsConfiguration.setAllowedOrigins(Arrays.asList(
-				"http://localhost:3000",
+				"http://localhost:3000/",
 				"https://kisaragi-partners.vercel.app/",
 				"https://kisaragi-partners-git-master-arianzambrano.vercel.app/",
 				"https://kisaragi-front-h61dbcurd-edwardr0507.vercel.app/",
