@@ -84,13 +84,11 @@ public class StoreController {
 	}
 	
 	@PostMapping("/add_category")
-	@ResponseBody
 	public ResponseEntity<Object> addCategory(@RequestBody AddStoreCategoryRequest request){
 		return new ResponseEntity<Object>(storeService.addCategory(request.getStoreId(), request.getStoreCategoryId()), HttpStatus.OK);
 	}
 
 	@PostMapping("/set_categories")
-	@ResponseBody
 	public ResponseEntity<Object> setCategories(@RequestBody AddStoreCategoriesRequest request){
 		return new ResponseEntity<Object>(storeService.addCategories(request.getStoreId(), request.getStoreCategoriesIds()), HttpStatus.OK);
 	}
