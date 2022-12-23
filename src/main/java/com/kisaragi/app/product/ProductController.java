@@ -63,7 +63,7 @@ public class ProductController {
         return new ResponseEntity<>(
                 productService.createProduct(
                         request.getName(),
-                        request.getDesciption(),
+                        request.getDescription(),
                         request.getUnitPrice(),
                         request.getStock(),
                         request.getCategoryId()
