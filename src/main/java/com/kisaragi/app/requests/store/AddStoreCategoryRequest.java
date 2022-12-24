@@ -19,4 +19,7 @@ public class AddStoreCategoryRequest {
     public void setStoreCategoryId(int storeCategoryId) {
         this.storeCategoryId = storeCategoryId;
     }
+
+    public AddStoreCategoryRequest() {
+    }
 }

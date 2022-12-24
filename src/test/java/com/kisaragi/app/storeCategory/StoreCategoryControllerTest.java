@@ -46,9 +46,9 @@ class StoreCategoryControllerTest {
 
     @Test
     void getStoreCategory() throws Exception{
-        when(stCatService.findCategory(0)).thenReturn(stCat);
-        mockMvc.perform(MockMvcRequestBuilders.get("/store_categories/id")
-                        .content(asJsonString(new IdRequest(0)))
+        when(stCatService.findCategory(anyInt())).thenReturn(stCat);
+        mockMvc.perform(MockMvcRequestBuilders.post("/store_categories/id")
+                        .content(asJsonString(new IdRequest(1)))
                         .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
