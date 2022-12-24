@@ -10,6 +10,7 @@ public class OrderResponse {
     private String user_id;
     private String store_name;
     private List<GetOrderProductsResponse> products;
+    private float total;
     private String address;
     private State state;
 
@@ -67,5 +68,13 @@ public class OrderResponse {
 
     public void setState(State state) {
         this.state = state;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
     }
 }

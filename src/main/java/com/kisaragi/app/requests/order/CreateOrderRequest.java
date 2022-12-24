@@ -8,6 +8,7 @@ public class CreateOrderRequest {
     private String userId;
     private String address;
 
+    private float total;
     private List<ProductsInOrderDTO> products;
     public int getStoreId() {
         return storeId;
@@ -47,6 +48,14 @@ public class CreateOrderRequest {
 
     public void setProducts(List<ProductsInOrderDTO> products) {
         this.products = products;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
     }
 }
 

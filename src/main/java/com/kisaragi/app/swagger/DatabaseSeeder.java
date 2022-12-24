@@ -116,16 +116,17 @@ public class DatabaseSeeder implements CommandLineRunner {
         pio.add(new ProductsInOrderDTO(4,2));
 
         List<ProductsInOrderDTO> pio2 = new ArrayList<>();
-        pio.add(new ProductsInOrderDTO(2,5));
-        pio.add(new ProductsInOrderDTO(3,10));
-        pio.add(new ProductsInOrderDTO(4,2));
+        pio2.add(new ProductsInOrderDTO(2,5));
+        pio2.add(new ProductsInOrderDTO(3,10));
+        pio2.add(new ProductsInOrderDTO(4,2));
         //ORDERS
         orderService.createOrder(
                 1,
                 "trackingTest123",
                 "testUser123",
                 "Av. Argentina",
-                pio
+                pio,
+                2f
 
         );
 
@@ -134,7 +135,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                 "trackingTest456",
                 "testUser123",
                 "Av. Argentina",
-                pio2
+                pio2,2f
         );
 
         orderService.createOrder(
@@ -142,7 +143,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                 "trackingTest789",
                 "testUser123",
                 "Av. Argentina",
-                pio
+                pio,2f
         );
 
 

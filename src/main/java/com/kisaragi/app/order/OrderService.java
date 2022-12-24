@@ -26,7 +26,7 @@ public class OrderService {
     ProductService productService;
     @Autowired
     OrderProductRepository orderProductRepository;
-    public OrderModel createOrder(int storeId, String tracking, String userId, String address, List<ProductsInOrderDTO> products){
+    public OrderModel createOrder(int storeId, String tracking, String userId, String address, List<ProductsInOrderDTO> products, float total){
         StoreModel store = storeService.findStore(storeId);
         OrderModel newOrder = new OrderModel(
                 store,
@@ -34,6 +34,7 @@ public class OrderService {
                 userId,
                 address
         );
+        newOrder.setTotal(total);
         orderRepository.save(newOrder);
         for (ProductsInOrderDTO p: products){
             addOrderProduct(tracking, p.getIdProduct(), p.getQuantity());
@@ -54,6 +55,7 @@ public class OrderService {
         response.setStore_name(order.getStoreOrder().getName());
         response.setState(order.getState());
         response.setUserId(order.getUserId());
+        response.setTotal(order.getTotal());
         List<OrderProduct> op = orderProductRepository.findAllByOrderId(order);
         List<GetOrderProductsResponse> products = new ArrayList<>();
         for (OrderProduct p: op){

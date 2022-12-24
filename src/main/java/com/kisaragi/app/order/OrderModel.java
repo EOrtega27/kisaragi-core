@@ -35,6 +35,9 @@ public class OrderModel {
     @Enumerated(EnumType.STRING)
     private State state;
 
+    @Column(name="total")
+    private float total;
+
     public OrderModel() {
         super();
     }
@@ -101,5 +104,13 @@ public class OrderModel {
 
     public void setState(State state) {
         this.state = state;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
     }
 }

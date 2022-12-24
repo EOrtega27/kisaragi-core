@@ -26,7 +26,7 @@ public class OrderController {
 
     @PostMapping("/save")
     private ResponseEntity<Object> saveOrder(@RequestBody CreateOrderRequest request){
-        return new ResponseEntity<>(orderService.createOrder(request.getStoreId(),request.getTracking(), request.getUserId(), request.getAddress(), request.getProducts()),HttpStatus.OK);
+        return new ResponseEntity<>(orderService.createOrder(request.getStoreId(),request.getTracking(), request.getUserId(), request.getAddress(), request.getProducts(), request.getTotal()),HttpStatus.OK);
     }
 
     @PostMapping("/by_store")
