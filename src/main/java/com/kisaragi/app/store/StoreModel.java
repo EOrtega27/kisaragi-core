@@ -16,7 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.kisaragi.app.dto.StoreDTO;
+import com.kisaragi.app.requests.StoreDTO;
+import com.kisaragi.app.order.OrderModel;
 import com.kisaragi.app.productCategory.ProductCategoryModel;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
 import org.hibernate.annotations.Cascade;
@@ -36,9 +37,18 @@ public class StoreModel {
 			org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
 	@JsonIgnore
 	private Set<ProductCategoryModel> productCategories;
-	
+
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, mappedBy = "storeOrder")
+	@Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,
+			org.hibernate.annotations.CascadeType.DELETE,
+			org.hibernate.annotations.CascadeType.MERGE,
+			org.hibernate.annotations.CascadeType.PERSIST,
+			org.hibernate.annotations.CascadeType.DELETE_ORPHAN})
+	@JsonIgnore
+	private Set<OrderModel> orders;
+
 	@Column(name="adminId")
-	private int adminId;
+	private String adminId;
 	
 	@Column(name="name", length = 200)
 	private String name;
@@ -85,11 +95,11 @@ public class StoreModel {
 		this.productCategories = productCategories;
 	}
 
-	public int getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
 
-	public void setAdminId(int adminId) {
+	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
 
@@ -157,10 +167,27 @@ public class StoreModel {
 		this.storeCategories = storeCategories;
 	}
 
-	
+	public Set<OrderModel> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<OrderModel> orders) {
+		this.orders = orders;
+	}
+
 	public StoreModel() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public StoreModel(String adminId, String name, String address, float latitude, float longitude, String telephone, String email) {
+		this.adminId = adminId;
+		this.name = name;
+		this.address = address;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.telephone = telephone;
+		this.email = email;
 	}
 
 	public StoreModel(StoreDTO data) {

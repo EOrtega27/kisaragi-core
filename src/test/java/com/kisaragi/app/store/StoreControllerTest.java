@@ -1,9 +1,9 @@
 package com.kisaragi.app.store;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kisaragi.app.dto.IdRequest;
-import com.kisaragi.app.dto.StoreDTO;
-import com.kisaragi.app.dto.UpdateStoreRequest;
+import com.kisaragi.app.requests.IdRequest;
+import com.kisaragi.app.requests.StoreDTO;
+import com.kisaragi.app.requests.UpdateStoreRequest;
 import com.kisaragi.app.storeCategory.StoreCategoryModel;
 import com.kisaragi.app.storeCategory.StoreCategoryService;
 import org.hamcrest.collection.IsCollectionWithSize;
@@ -120,7 +120,7 @@ class StoreControllerTest {
 
     @Test
     void addCategory() throws Exception{
-        when(storeService.addCategory(anyInt(),any(StoreCategoryModel.class))).thenReturn(storeTest);
+        when(storeService.addCategory(anyInt(),anyInt())).thenReturn(storeTest);
         when(stCatService.findCategory(anyInt())).thenReturn(category);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/stores/{storeId}/add_category",1)

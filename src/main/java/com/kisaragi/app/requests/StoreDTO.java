@@ -1,7 +1,7 @@
-package com.kisaragi.app.dto;
+package com.kisaragi.app.requests;
 
 public class StoreDTO {
-	private int adminId;
+	private String adminId;
 	private String name;
 	private String address;
 	private float latitude;
@@ -9,10 +9,10 @@ public class StoreDTO {
 	private String telephone;
 	private String email;
 	
-	public int getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
-	public void setAdminId(int adminId) {
+	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
 	public String getName() {

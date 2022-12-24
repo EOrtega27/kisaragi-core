@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import com.kisaragi.app.storeCategory.StoreCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,13 +17,15 @@ public class StoreService {
 	@Autowired
 	StoreRepository storeRepo;
 	@Autowired
+	StoreCategoryRepository storeCategoryRepository;
+	@Autowired
 	cloudinaryService cloudinary;
 	
 	public StoreModel findStore(int id) {
 		return storeRepo.findById(id);
 	}
 
-	public List<StoreModel> findStoreByAdminId(int id){
+	public List<StoreModel> findStoreByAdminId(String id){
 		return storeRepo.findAllByAdminId(id);
 	}
 	
@@ -59,9 +62,20 @@ public class StoreService {
 		return storeRepo.existsById(id);
 	}
 	
-	public StoreModel addCategory(int id, StoreCategoryModel stCat) {
-		StoreModel store = findStore(id);
-		store.getStoreCategories().add(stCat);
+	public StoreModel addCategory(int storeId, int storeCategoryId) {
+		StoreModel store = findStore(storeId);
+		StoreCategoryModel storeCategoryModel = storeCategoryRepository.findById(storeCategoryId);
+		store.getStoreCategories().add(storeCategoryModel);
+		return storeRepo.save(store);
+	}
+
+	public StoreModel addCategories(int storeId, List<Integer> storeCategoryIds) {
+		StoreModel store = findStore(storeId);
+		store.getStoreCategories().clear();
+		for(int storeCategoryId: storeCategoryIds){
+			StoreCategoryModel storeCategoryModel = storeCategoryRepository.findById(storeCategoryId);
+			store.getStoreCategories().add(storeCategoryModel);
+		}
 		return storeRepo.save(store);
 	}
 }

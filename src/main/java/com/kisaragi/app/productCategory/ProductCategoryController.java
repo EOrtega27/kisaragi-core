@@ -1,7 +1,7 @@
 package com.kisaragi.app.productCategory;
 
-import com.kisaragi.app.dto.IdRequest;
-import com.kisaragi.app.dto.productCategory.SaveProductCategoryRequest;
+import com.kisaragi.app.requests.IdRequest;
+import com.kisaragi.app.requests.productCategory.SaveProductCategoryRequest;
 import com.kisaragi.app.store.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,12 +21,12 @@ public class ProductCategoryController {
         return new ResponseEntity<>(proCatService.getAllCategories(), HttpStatus.OK);
     }
 
-    @GetMapping("/by_store")
+    @PostMapping("/by_store")
     private ResponseEntity<Object> getCategoriesByStore(@RequestBody IdRequest storeId){
         return new ResponseEntity<>(proCatService.getAllByStore(storeId.getId()),HttpStatus.OK);
     }
 
-    @GetMapping("/id")
+    @PostMapping("/id")
     private ResponseEntity<Object> getCategoryById(@RequestBody IdRequest catId){
         return new ResponseEntity<>(proCatService.findById(catId.getId()),HttpStatus.OK);
     }

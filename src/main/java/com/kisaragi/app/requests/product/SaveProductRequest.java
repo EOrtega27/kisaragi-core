@@ -1,8 +1,8 @@
-package com.kisaragi.app.dto.product;
+package com.kisaragi.app.requests.product;
 
 public class SaveProductRequest {
     private String name;
-    private String desciption;
+    private String description;
     private float unitPrice;
     private int stock;
     private int categoryId;
@@ -11,8 +11,8 @@ public class SaveProductRequest {
         return name;
     }
 
-    public String getDesciption() {
-        return desciption;
+    public String getDescription() {
+        return description;
     }
 
     public float getUnitPrice() {

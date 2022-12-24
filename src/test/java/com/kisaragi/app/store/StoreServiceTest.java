@@ -79,11 +79,4 @@ class StoreServiceTest {
         assertTrue(result);
     }
 
-    @Test
-    void addCategory() {
-        when(storeRepository.findById(anyInt())).thenReturn(store);
-        when(storeRepository.save(any(StoreModel.class))).thenReturn(store);
-        final StoreModel result = storeService.addCategory(5,category);
-        assertEquals(result.getName(),store.getName());
-    }
 }

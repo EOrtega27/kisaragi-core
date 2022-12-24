@@ -1,9 +1,9 @@
 package com.kisaragi.app.storeCategory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.kisaragi.app.dto.IdRequest;
-import com.kisaragi.app.dto.StoreCategoryDTO;
-import com.kisaragi.app.dto.UpdateStoreCategoryRequest;
+import com.kisaragi.app.requests.IdRequest;
+import com.kisaragi.app.requests.StoreCategoryDTO;
+import com.kisaragi.app.requests.UpdateStoreCategoryRequest;
 import org.hamcrest.collection.IsCollectionWithSize;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
