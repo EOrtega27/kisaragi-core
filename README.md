@@ -17,3 +17,26 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
+# Running the project with MySQL
+
+This project uses an PostgreSQL database. However, converting it to run 
+with another relational database such as MySQL. 
+Since the project uses Spring Data and the Repository pattern, it's even 
+fairly easy to back the same service with MongoDB.
+
+Here is what you would do to back the services with MySQL, for example:
+
+### In pom.xml add:
+
+```
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+```
+### Edit the application.properties
+```
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
+```
+# SwaggerUI
+Run the server and browse to `{route}/swagger-ui/index.html`
