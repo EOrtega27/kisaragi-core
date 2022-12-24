@@ -8,6 +8,7 @@ For building and running the application you need:
 - [Maven 3](https://maven.apache.org)
 
 ## Running the application locally
+First, you need to edit the datasource's properties in the `application.properties` file 
 
 There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.kisaragi.app.KisaragiCoreApplication` class from your IDE.
 

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+//@Component
 public class DatabaseSeeder implements CommandLineRunner {
     @Autowired
     StoreCategoryRepository storeCategoryRepository;
