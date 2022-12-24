@@ -6,6 +6,7 @@ import com.kisaragi.app.requests.order.GetOrderProductsResponse;
 import com.kisaragi.app.requests.order.OrderResponse;
 import com.kisaragi.app.product.ProductModel;
 import com.kisaragi.app.product.ProductService;
+import com.kisaragi.app.requests.order.ProductsInOrderDTO;
 import com.kisaragi.app.store.StoreModel;
 import com.kisaragi.app.store.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class OrderService {
     ProductService productService;
     @Autowired
     OrderProductRepository orderProductRepository;
-    public OrderModel createOrder(int storeId, String tracking, String userId, String address){
+    public OrderModel createOrder(int storeId, String tracking, String userId, String address, List<ProductsInOrderDTO> products){
         StoreModel store = storeService.findStore(storeId);
         OrderModel newOrder = new OrderModel(
                 store,
@@ -33,6 +34,9 @@ public class OrderService {
                 address
         );
         orderRepository.save(newOrder);
+        for (ProductsInOrderDTO p: products){
+            addOrderProduct(tracking, p.getIdProduct(), p.getQuantity());
+        }
         return newOrder;
     }
 
