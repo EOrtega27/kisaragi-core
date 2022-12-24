@@ -15,4 +15,12 @@ public class ProductsInOrderDTO {
     public void setIdProduct(int idProduct) {
         this.idProduct = idProduct;
     }
+
+    public ProductsInOrderDTO(int idProduct, int quantity) {
+        this.idProduct = idProduct;
+        this.quantity = quantity;
+    }
+
+    public ProductsInOrderDTO() {
+    }
 }

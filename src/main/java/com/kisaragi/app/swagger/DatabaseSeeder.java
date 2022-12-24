@@ -3,6 +3,7 @@ package com.kisaragi.app.swagger;
 import com.kisaragi.app.order.OrderService;
 import com.kisaragi.app.product.ProductService;
 import com.kisaragi.app.productCategory.ProductCategoryService;
+import com.kisaragi.app.requests.order.ProductsInOrderDTO;
 import com.kisaragi.app.store.StoreModel;
 import com.kisaragi.app.store.StoreRepository;
 import com.kisaragi.app.store.StoreService;
@@ -109,30 +110,41 @@ public class DatabaseSeeder implements CommandLineRunner {
                 3
         );
 
+        List<ProductsInOrderDTO> pio = new ArrayList<>();
+        pio.add(new ProductsInOrderDTO(1,5));
+        pio.add(new ProductsInOrderDTO(2,10));
+        pio.add(new ProductsInOrderDTO(4,2));
+
+        List<ProductsInOrderDTO> pio2 = new ArrayList<>();
+        pio.add(new ProductsInOrderDTO(2,5));
+        pio.add(new ProductsInOrderDTO(3,10));
+        pio.add(new ProductsInOrderDTO(4,2));
         //ORDERS
         orderService.createOrder(
                 1,
                 "trackingTest123",
                 "testUser123",
-                "Av. Argentina"
+                "Av. Argentina",
+                pio
+
         );
 
         orderService.createOrder(
                 1,
                 "trackingTest456",
                 "testUser123",
-                "Av. Argentina"
+                "Av. Argentina",
+                pio2
         );
 
         orderService.createOrder(
                 2,
                 "trackingTest789",
                 "testUser123",
-                "Av. Argentina"
+                "Av. Argentina",
+                pio
         );
 
-        orderService.addOrderProduct("trackingTest123",1,5);
-        orderService.addOrderProduct("trackingTest123",2,10);
-        orderService.addOrderProduct("trackingTest789",4,2);
+
     }
 }
