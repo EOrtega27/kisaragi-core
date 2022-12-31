@@ -92,4 +92,9 @@ public class StoreController {
 	public ResponseEntity<Object> setCategories(@RequestBody AddStoreCategoriesRequest request){
 		return new ResponseEntity<Object>(storeService.addCategories(request.getStoreId(), request.getStoreCategoriesIds()), HttpStatus.OK);
 	}
+
+	@GetMapping("/nuevo")
+	public ResponseEntity<Object> nuevoEndpoint(){
+		return new ResponseEntity<>("Nuevo enpoint", HttpStatus.OK);
+	}
 }
